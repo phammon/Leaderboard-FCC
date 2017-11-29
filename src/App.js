@@ -10,14 +10,12 @@ export default class App extends React.Component {
 		};
     }
 	componentDidMount() {
-		fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent').then((response) => {//handle response
-				//convert to json
+		fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent').then((response) => {
 					return response.json();
 				}).then((obj) => {
 					obj.map(i => i.id = obj.indexOf(i));
 					obj.map(i => i.id = i.id + 1);
-					this.setState({data: obj});
-					
+					this.setState({data: obj});					
 	})}
   render() {
   	const {data} = this.state;
